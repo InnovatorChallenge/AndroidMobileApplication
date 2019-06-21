@@ -69,7 +69,7 @@ public class ItemListActivity extends AppCompatActivity {
         that = this;
 
         EstimoteCloudCredentials cloudCredentials =
-                new EstimoteCloudCredentials("estimote-admin-jqz", "2b6c2bb634974e9db40905d411f28d1e");
+                new EstimoteCloudCredentials("sean-leonard-sap-com-s-you-gv1", "089d91d9445acd82f72f131f54b1bb96");
 
         this.proximityObserver =
                 new ProximityObserverBuilder(getApplicationContext(), cloudCredentials)
