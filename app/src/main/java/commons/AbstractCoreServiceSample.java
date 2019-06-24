@@ -28,11 +28,12 @@ extends AbstractSample {
 	public AbstractCoreServiceSample() {
 		super();
 
-		String host = properties.getProperty(IOT_HOST);
-		String instance = properties.getProperty(INSTANCE_ID);
-		String tenant = properties.getProperty(TENANT_ID);
-		String user = properties.getProperty(IOT_USER);
-		String password = properties.getProperty(IOT_PASSWORD);
+		String host = "c432c5b0-3ec2-47ad-bf22-23645fa5e565.eu10.cp.iot.sap";
+		String instance = "c432c5b0-3ec2-47ad-bf22-23645fa5e565";
+		String tenant = "727792470";
+		String user = "i350870";
+		String password= "Team134";
+
 
 		coreService = new CoreService(host, instance, tenant, user, password);
 		processingService = new ProcessingService(host, tenant, user, password);

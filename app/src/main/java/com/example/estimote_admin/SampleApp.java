@@ -1,5 +1,7 @@
 package com.example.estimote_admin;
 
+import android.os.StrictMode;
+
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.concurrent.Executors;
@@ -28,6 +30,8 @@ import commons.utils.SecurityUtil;
 public class SampleApp
 extends AbstractCoreServiceSample {
 
+
+
 	private GatewayCloud gatewayCloud;
 
 	@Override
@@ -38,9 +42,14 @@ extends AbstractCoreServiceSample {
 	@Override
 	protected void run()
 	throws SampleException {
-		String deviceId = properties.getProperty(DEVICE_ID);
-		String sensorId = properties.getProperty(SENSOR_ID);
-		GatewayProtocol gatewayProtocol = GatewayProtocol.fromValue(properties.getProperty(GATEWAY_PROTOCOL_ID));
+		String deviceId = "05da5089-ed71-46d2-a62c-07625be47975";
+		String sensorId = "4fc7ae05-c71b-472d-8c73-c8a60ffda265";
+		GatewayProtocol gatewayProtocol = GatewayProtocol.fromValue("http");
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy =
+					new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
 
 		try {
 			Console.printSeparator();

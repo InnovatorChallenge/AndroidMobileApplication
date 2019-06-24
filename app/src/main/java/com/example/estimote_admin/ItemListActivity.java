@@ -59,6 +59,8 @@ public class ItemListActivity extends AppCompatActivity {
     private Context that;
     private ArrayList stalls;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +69,13 @@ public class ItemListActivity extends AppCompatActivity {
         //---Estimote Configurations ------------------------------------------------------------------------------------
 
         that = this;
-
+        try {
+            new SampleApp().run();
+        }
+        catch (SampleException e) {
+            Console.printError(String.format("Unable to run the sample - %1$s", e.getMessage()));
+            System.exit(1);
+        }
         EstimoteCloudCredentials cloudCredentials =
                 new EstimoteCloudCredentials("sean-leonard-sap-com-s-you-gv1", "089d91d9445acd82f72f131f54b1bb96");
 
@@ -112,13 +120,6 @@ public class ItemListActivity extends AppCompatActivity {
                         }
                         Toast.makeText(that, "In range of stalls: " + stalls, Toast.LENGTH_SHORT).show();
                         Log.d("app", "In range of stalls: " + stalls);
-                        try {
-                            new SampleApp().run();
-                        }
-                        catch (SampleException e) {
-                            Console.printError(String.format("Unable to run the sample - %1$s", e.getMessage()));
-                            System.exit(1);
-                        }
                         return null;
                     }
 
